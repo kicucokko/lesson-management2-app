@@ -1,12 +1,22 @@
 <h1>ようこそ、LESSON MANAGEMENT へ</h1>
 
 <h1>Topページ</h1>
-<p>ゲスト さん、こんにちは</p>
-  <%= link_to new_user_registration_path, class: 'admin-btn' do %>
-    <span class='admin-btn-text'>新規登録はこちら</span><br>
+<% if user_signed_in? %> 
+  <p><%= current_user.nickname %> さん、こんにちは</p>
+    <%= link_to user_path(current_user.id), class: 'log-in-btn' do %>
+    <span class='btn-text'>ログインページ</span><br>
   <% end %>
-  <%= link_to new_user_session_path, class: 'customer-btn' do %>
-    <span class='customer-btn-text'>ログインページ</span><br>
+    <%= link_to destroy_user_session_path,method: :delete, class: 'log-out-btn' do %>
+    <span class='btn-text'>ログアウト</span><br>
   <% end %>
+<% else %>
+ <p>ゲスト さん、こんにちは</p>
+  <%= link_to new_user_registration_path, class: 'sign-up-btn' do %>
+    <span class='btn-text'>新規登録はこちら</span><br>
+  <% end %>
+  <%= link_to new_user_session_path, class: 'log-in-btn' do %>
+    <span class='btn-text'>ログインページ</span><br>
+  <% end %>
+<% end %>
 
 
