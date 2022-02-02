@@ -23,7 +23,7 @@
 ## role テーブル（権限管理テーブル）
 | column            | Type      | Options                 |
 | ----------------- | --------- | ----------------------- |
-| name              | string    | null: false             |
+| room_name              | string    | null: false             |
 
 - has_many :users, through :user_roles
 

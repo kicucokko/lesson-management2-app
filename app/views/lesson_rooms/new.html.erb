@@ -1,0 +1,19 @@
+<div class='form-wrap'>
+  <div class='form-header'>
+    <h1 class='form-header-text'>
+     新規LessonRoom登録
+    </h1>
+  </div>
+  <%= form_with model: @lesson_room, url: lesson_rooms_path, class: 'registration-main', local: true do |f| %>
+  <div class="field">
+    <div class="form-text-wrap">
+     <label class="form-text">Room名</label>
+      <span class="indispensable">必須</span>
+    </div>
+    <%= f.text_field :room_name, autofocus: true, autocomplete: "on" %>
+  </div>
+  <div class="actions">
+    <%= f.submit "登録" %>
+  </div>
+  <% end %>
+</div>

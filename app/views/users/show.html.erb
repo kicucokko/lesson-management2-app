@@ -1,1 +1,14 @@
 <h1>MyPage</h1>
+
+<%= link_to new_lesson_room_path, class: 'room-btn' do %>
+<span class='btn-text'>LessonRoom作成フォーム</span><br>
+<% end %>
+
+<%# LessonRoom一覧表示%>
+<% current_user.lesson_rooms.each do |f|%>
+  <div class ="lesson-room-name">
+   <%= link_to lesson_room_path(f.id), class: 'room-serect-btn' do%>
+   <span class='botn-text'><%= f.room_name %></span><br>
+   <% end %>
+  </div>
+<% end %>
