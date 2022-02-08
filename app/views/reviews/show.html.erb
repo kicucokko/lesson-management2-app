@@ -1,0 +1,15 @@
+<h1>本日のレッスン</h1>
+
+<div class="review-show">
+  <div class="review-box">
+    <% @lesson_room.each do |review| %>
+      <p><%= review.title %></p>
+      <p><%= review.time %></p>
+      <p><%= review.text %></p>
+      <p><%= review.home_work %></p>
+      <p><%= review.information %></p>
+    <% end %>
+  </div>
+</div>
+   
+    

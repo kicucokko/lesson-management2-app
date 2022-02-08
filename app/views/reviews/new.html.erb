@@ -1,0 +1,47 @@
+<div class='form-wrap'>
+  <div class='form-header'>
+    <h1 class='form-header-text'>
+     レッスン記録登録フォーム
+    </h1>
+  </div>
+  <%= form_with model: @review, url: lesson_room_reviews_path, class: 'registration-main', local: true do |f| %>
+  <div class="field">
+    <div class="form-text-wrap">
+     <label class="form-text" for="">日時</label>
+      <span class="indispensable">必須</span>
+    </div>
+    <%= f.date_select :time, {}, class: 'form-control' %>
+  </div>
+  <div class="field">
+    <div class="form-text-wrap">
+     <label class="form-text">Title</label>
+    </div>
+    <%= f.text_field :title, autofocus: true, autocomplete: "on" %>
+  </div>
+  <div class="field">
+    <div class="form-text-wrap">
+     <label class="form-text">本文</label>
+      <span class="indispensable">必須</span>
+    </div>
+    <%= f.text_area :text, autofocus: true, autocomplete: "on" %>
+  </div>
+    <div class="field">
+    <div class="form-text-wrap">
+     <label class="form-text">HomeWork</label>
+      <span class="indispensable">必須</span>
+    </div>
+    <%= f.text_field :home_work, autofocus: true, autocomplete: "on" %>
+  </div>
+  <div class="field">
+    <div class="form-text-wrap">
+     <label class="form-text">Information</label>
+    </div>
+    <%= f.text_field :information, autofocus: true, autocomplete: "on" %>
+  </div>
+  <div class="actions">
+    <%= f.submit "登録" %>
+  </div>
+  <% end %>
+</div>
+
+

@@ -6,5 +6,8 @@ Rails.application.routes.draw do
   }
 
   root to: 'homes#index'
-  resources :users, only:[:show]
+  resources :users, only:[:show,:edit,:destroy]
+  resources :lesson_rooms, only:[:new,:create,:show,:edit,:update,:destroy] do
+    resources :reviews,only:[:new,:create,:show,:edit,:update,:destroy]
+  end
 end
