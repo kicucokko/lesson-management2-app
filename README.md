@@ -49,13 +49,11 @@
 *gem 'active_hash'
 
 
-
-
 ## Lesson_rooms (Lesson部屋テーブル）
 
-| Column | Type   | Options     |
-| ------ | ------ | ----------- |
-| name   | string | null: false |
+| Column      | Type   | Options     |
+| ----------- | ------ | ----------- |
+| room_name   | string | null: false |
 
 - has_many :users, through: :user_rooms
 
@@ -72,12 +70,14 @@
 ## Reviews テーブル (記録投稿機能)
 | column            | Type      | Options                       |
 | ----------------- | --------- | ----------------------------- |
-| title             | string    | null: false                   |
+| time              | datetime  | null: false                   |
+| title             | string    |                               |
 | text              | string    | null: false                   |
 | home_work         | string    | null: false                   |
-| information       | string    | null: false                   |
-| customer          | references| null: false,foreign_key: true |
-| admin             | references| null: false,foreign_key: true |
+| information       | string    |                               |
+| user              | references| null: false,foreign_key: true |
+| lesson_room       | references| null: false,foreign_key: true |
+
 
 - belongs_to :user
 - belongs_to :lesson_room
