@@ -94,6 +94,9 @@
 - belongs_to :user
 - has_many :reservers
 
+*gem 'simple_calendar', '~> 2.0'
+
+
 ## Reserves テーブル (予定登録機能)
 | column            | Type      | Options                      |
 | ----------------- | --------- | ---------------------------- |

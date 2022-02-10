@@ -2,16 +2,35 @@
 <h1>MyPage</h1>
 <% end %>
 
-
+<%# 記録フォーム＆一覧%>
 <%= link_to new_lesson_room_path, class: 'room-btn' do %>
 <span class='btn-text'>LessonRoom作成フォーム</span><br>
 <% end %>
 
-<%# LessonRoom一覧表示%>
-<% current_user.lesson_rooms.each do |f|%>
+<% @lesson_rooms.each do |f|%>
   <div class ="lesson-room-name">
    <%= link_to lesson_room_path(f.id), class: 'room-serect-btn' do%>
    <span class='botn-text'><%= f.room_name %></span><br>
    <% end %>
   </div>
 <% end %>
+<%# 記録フォーム＆一覧%>
+
+<%# レッスン日程予約フォーム%>
+<%= link_to calenders_path, class: 'room-btn' do %>
+  <span class='btn-text'>レッスン受講日予約</span><br>
+<% end %>
+<div class="calender-schedule">
+ <p>次回のレッスン受講日<p>
+  <% unless @user.calenders.present? %>
+   <p>予約中のレッスン受講日はありません</p>
+  <% else %>
+    <p>次のレッスンは</p>
+    <%= link_to calender_path do%>
+      <%= @calender.day  %>
+      <%= @calender.time %>
+    <% end %>
+    <p>です。</p>
+  <% end %>
+</div>
+<%# レッスン日程予約フォーム%>

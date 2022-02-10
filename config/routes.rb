@@ -10,4 +10,5 @@ Rails.application.routes.draw do
   resources :lesson_rooms, only:[:new,:create,:show,:edit,:update,:destroy] do
     resources :reviews,only:[:new,:create,:show,:edit,:update,:destroy]
   end
+  resources :calenders, only: [:index,:new,:create,:show]
 end
