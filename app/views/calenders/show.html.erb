@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row">
     <div class="col-12 text-center title">
-      <h1>予約詳細画面</h1>
+     予約詳細画面
     </div>
     <div class="col-12 mt-3 text-center content">
       <div>
@@ -16,11 +16,9 @@
     <div class="col-12 text-right">
       <%= link_to '予約画面に戻る', calenders_path %>
     </div>
-    <div class="col-12 text-right">
-      <%= link_to '予約を変更する', calenders_path %>
     </div>
     <div class="col-12 text-right">
-      <%= link_to '予定をキャンセルする', calenders_path %>
+      <%= link_to '予約をキャンセルする', calender_path(@calender.id), method: :delete %>
     </div>
   </div>
 </div>

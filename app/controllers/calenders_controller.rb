@@ -22,6 +22,12 @@ class CalendersController < ApplicationController
     end
   end
 
+  def destroy
+    @calender = Calender.find(params[:id])
+    @calender.destroy
+    redirect_to calenders_path
+  end
+
 
   private
   def calender_params
