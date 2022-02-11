@@ -1,6 +1,6 @@
 <div class='chat-room-form'>
-  <h1>新規レッスンルーム作成</h1>
-  <%=form_with model: @lesson_room, url: lesson_rooms_path(@lesson_room.id) ,local: true do |f|%>
+  <h1>レッスンルーム編集</h1>
+  <%=form_with model: @lesson_room, url: lesson_room_path(@lesson_room.id),method: :put ,local: true do |f|%>
     <div class='chat-room-form__field'>
       <div class='chat-room-form__field--left'>
         <%= f.label :レッスンルーム名, class: 'chat-room-form__label'%>
