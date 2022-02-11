@@ -20,5 +20,8 @@
    <%= link_to lesson_room_review_path(f.id), class: 'room-serect-btn' do%>
    <span class='botn-text'><%= f.title %></span><br>
    <% end %>
+   <div class="col-12 text-right">
+    <%= link_to '削除する', lesson_room_review_path(@review.ids), method: :delete %>
+  </div>
   </div>
 <% end %>

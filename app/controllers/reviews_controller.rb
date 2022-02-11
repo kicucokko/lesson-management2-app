@@ -12,9 +12,27 @@ class ReviewsController < ApplicationController
     end
   end
   def show
-    @lesson_room = Review.where(id: params[:lesson_room_id])
+    @review = Review.where(id: params[:lesson_room_id])
+    @lesson_room = LessonRoom.find(params[:id])
   end
-
+  def edit
+    @review = Review.find_by(id: params[:lesson_room_id])
+  end
+  def update
+    @lesson_room = LessonRoom.find(params[:id])
+    @review = Review.find_by(id: params[:lesson_room_id])
+    if @review.update(review_params)
+     redirect_to lesson_room_path
+    else
+      render :edit
+    end
+  end
+  def destroy
+    @lesson_room = LessonRoom.find(params[:id])
+    @review = Review.find_by(id: params[:lesson_room_id])
+    @review.destroy
+    redirect_to  lesson_room_path(@lesson_room.id)
+  end
 
   private
   def review_params
