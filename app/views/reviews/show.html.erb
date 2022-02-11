@@ -2,13 +2,22 @@
 
 <div class="review-show">
   <div class="review-box">
-    <% @lesson_room.each do |review| %>
+    <% @review.each do |review| %>
       <p><%= review.title %></p>
       <p><%= review.time %></p>
       <p><%= review.text %></p>
       <p><%= review.home_work %></p>
       <p><%= review.information %></p>
     <% end %>
+  </div>
+  <div class="col-12 text-right">
+    <%= link_to '編集する', edit_lesson_room_review_path(@review.ids) %>
+  </div>
+  <div class="col-12 text-right">
+    <%= link_to '削除する', lesson_room_review_path(@review.ids),method: :delete %>
+  </div>
+  <div class="col-12 text-right">
+    <%= link_to '戻る', lesson_room_path(@lesson_room.id) %>
   </div>
 </div>
    

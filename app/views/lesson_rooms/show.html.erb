@@ -1,4 +1,15 @@
-<%= link_to "ここはレッスンルームです"root_path, class: 'room-btn' %>
+<%= link_to "ここは#{@lesson_room.room_name}ルームです",root_path, class: 'room-btn' %><br>
+
+<div class="col-12 text-right">
+  <%= link_to "編集", edit_lesson_room_path(@lesson_room.id) %>
+</div>
+
+<div class="col-12 text-right">
+  <%= link_to "削除", lesson_room_path(@lesson_room.id), method: :delete %>
+</div>
+<div class="col-12 text-right">
+    <%= link_to '戻る', user_path(current_user.id) %>
+  </div>
 
 <%= link_to new_lesson_room_review_path(@lesson_room.id), class: 'room-btn' do %>
 <span class='btn-text'>レッスン記録作成フォーム</span><br>
@@ -9,5 +20,8 @@
    <%= link_to lesson_room_review_path(f.id), class: 'room-serect-btn' do%>
    <span class='botn-text'><%= f.title %></span><br>
    <% end %>
+   <div class="col-12 text-right">
+    <%= link_to '削除する', lesson_room_review_path(@review.ids), method: :delete %>
+  </div>
   </div>
 <% end %>
