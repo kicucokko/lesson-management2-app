@@ -86,6 +86,8 @@ GEM
       railties (>= 4.1.0)
       responders
       warden (~> 1.2.3)
+    enum_help (0.0.18)
+      activesupport (>= 3.0.0)
     erubi (1.10.0)
     ffi (1.15.5)
     globalid (1.0.0)
@@ -148,6 +150,9 @@ GEM
       nokogiri (>= 1.6)
     rails-html-sanitizer (1.4.2)
       loofah (~> 2.3)
+    rails-i18n (7.0.2)
+      i18n (>= 0.7, < 2)
+      railties (>= 6.0.0, < 8)
     railties (6.0.4.4)
       actionpack (= 6.0.4.4)
       activesupport (= 6.0.4.4)
@@ -233,12 +238,14 @@ DEPENDENCIES
   cancancan
   capybara (>= 2.15)
   devise
+  enum_help
   jbuilder (~> 2.7)
   listen (>= 3.0.5, < 3.2)
   mysql2 (>= 0.4.4)
   pry-rails
   puma (~> 3.11)
   rails (~> 6.0.0)
+  rails-i18n
   sass-rails (~> 5)
   selenium-webdriver
   simple_calendar (~> 2.0)

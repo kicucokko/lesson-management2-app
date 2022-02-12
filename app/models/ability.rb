@@ -8,9 +8,14 @@ class Ability
     #
        user ||= User.new 
        if user.admin?
-         can :manage, :all
+         can :manage,[LessonRoom,Review,Calender],:all
+
+       elsif user.customer?
+         can :read,[LessonRoom,Review]
+         can [:create,:destory],Calender
+
        else
-         can :read, :all
+        cannot:read, :all
        end
     #
     # The first argument to `can` is the action you are giving the user

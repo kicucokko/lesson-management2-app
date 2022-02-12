@@ -2,6 +2,20 @@
 <h1>MyPage</h1>
 <% end %>
 
+<div class="profile-form-block">
+  <p><%= @user.name%></p>
+  <p><%= @user.nickname%></p>
+  <p><%= @user.email%></p>
+  <p><%= @user.birth_date%></p>
+  <p><%= @user.prefecture.name%></p>
+  <p><%= @user.city_block%></p>
+  <p><%= @user.station%></p>
+</div>
+<div class="col-12 text-right">
+  <%= link_to "プロフィールを編集",  edit_user_registration_path(@user.id) %>
+</div>
+
+
 
 <%# 記録フォーム＆一覧%>
 <%= link_to new_lesson_room_path, class: 'room-btn' do %>

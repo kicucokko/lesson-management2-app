@@ -1,0 +1,6 @@
+ja:
+  enums:
+    user:
+      role:
+        customer: 生徒(無料)
+        admin: 講師(有料)

@@ -1,5 +1,7 @@
 class CalendersController < ApplicationController
   before_action :authenticate_user!
+  authorize_resource # Abilty.rbのルールチェック
+  
   def index
     @calenders = Calender.all.where("day >= ?", Date.current).where("day < ?", Date.current >> 3).order(day: :desc)
   end

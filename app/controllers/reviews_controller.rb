@@ -1,4 +1,5 @@
 class ReviewsController < ApplicationController
+  authorize_resource # Abilty.rbのルールチェック
   def new
     @review = Review.new
   end
