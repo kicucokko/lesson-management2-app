@@ -2,22 +2,40 @@
 <h1>MyPage</h1>
 <% end %>
 
+<div class="profile-form-block">
+  <p><%= @user.name%></p>
+  <p><%= @user.nickname%></p>
+  <p><%= @user.email%></p>
+  <p><%= @user.birth_date%></p>
+  <p><%= @user.prefecture.name%></p>
+  <p><%= @user.city_block%></p>
+  <p><%= @user.station%></p>
+</div>
+<div class="col-12 text-right">
+  <%= link_to "プロフィールを編集",  edit_user_registration_path(@user.id) %>
+</div>
+
+
 
 <%# 記録フォーム＆一覧%>
-<%= link_to new_lesson_room_path, class: 'room-btn' do %>
-<span class='btn-text'>LessonRoom作成フォーム</span><br>
+<% if current_user.admin?%>
+  <%= link_to new_lesson_room_path, class: 'room-btn' do %>
+  <span class='btn-text'>LessonRoom作成フォーム</span><br>
+  <% end %>
 <% end %>
 
 <% @lesson_rooms.each do |f|%>
   <div class ="lesson-room-name">
     <%= link_to lesson_room_path(f.id), class: 'room-serect-btn' do%>
    <span class='botn-text'><%= f.room_name %></span><br>
+   <% if current_user.admin? %>
     <div class="col-12 text-right">
       <%= link_to "編集", edit_lesson_room_path(f.id) %>
     </div>
     <div class="col-12 text-right">
       <%= link_to "削除", lesson_room_path(f.id), method: :delete %>
     </div>
+    <%end%>
    <% end %>
   </div>
 <% end %>

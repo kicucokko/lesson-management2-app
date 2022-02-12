@@ -1,4 +1,6 @@
 class LessonRoomsController < ApplicationController
+  authorize_resource # Abilty.rbのルールチェック
+
   def new
     @lesson_room =LessonRoom.new
   end
