@@ -1,3 +1,5 @@
+<%= render "shared/header"%>
+
 <div class='chat-room-form'>
   <h1>新規レッスンルーム作成</h1>
   <%=form_with model: @lesson_room, url: lesson_rooms_path(@lesson_room.id) ,local: true do |f|%>

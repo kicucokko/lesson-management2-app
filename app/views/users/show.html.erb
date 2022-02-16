@@ -1,61 +1,103 @@
-<%= link_to root_path, class: 'room-top-btn' do %>
-<h1>MyPage</h1>
-<% end %>
+<%= render "shared/header"%>
 
-<div class="profile-form-block">
-  <p><%= @user.name%></p>
-  <p><%= @user.nickname%></p>
-  <p><%= @user.email%></p>
-  <p><%= @user.birth_date%></p>
-  <p><%= @user.prefecture.name%></p>
-  <p><%= @user.city_block%></p>
-  <p><%= @user.station%></p>
-</div>
-<div class="col-12 text-right">
-  <%= link_to "プロフィールを編集",  edit_user_registration_path(@user.id) %>
-</div>
-
-
-
-<%# 記録フォーム＆一覧%>
-<% if current_user.admin?%>
-  <%= link_to new_lesson_room_path, class: 'room-btn' do %>
-  <span class='btn-text'>LessonRoom作成フォーム</span><br>
-  <% end %>
-<% end %>
-
-<% @lesson_rooms.each do |f|%>
-  <div class ="lesson-room-name">
-    <%= link_to lesson_room_path(f.id), class: 'room-serect-btn' do%>
-   <span class='botn-text'><%= f.room_name %></span><br>
-   <% if current_user.admin? %>
-    <div class="col-12 text-right">
-      <%= link_to "編集", edit_lesson_room_path(f.id) %>
-    </div>
-    <div class="col-12 text-right">
-      <%= link_to "削除", lesson_room_path(f.id), method: :delete %>
-    </div>
-    <%end%>
-   <% end %>
+<div class="my-page-top">
+  <div class="my-page">
+   <h1 class=my-page-text>MyPage</h1>
   </div>
-<% end %>
-<%# 記録フォーム＆一覧%>
+</div>
 
-<%# レッスン日程予約フォーム%>
-<%= link_to calenders_path, class: 'room-btn' do %>
-  <span class='btn-text'>レッスン受講日予約</span><br>
-<% end %>
-<div class="calender-schedule">
- <p>次回のレッスン受講日<p>
-  <% unless @user.calenders.present? %>
-   <p>予約中のレッスン受講日はありません</p>
-  <% else %>
-    <p>次のレッスンは</p>
-    <%= link_to calender_path(@calender.id) do%>
-      <%= @calender.day  %>
-      <%= @calender.time %>
+<div class=main-top>
+  <div class="profile-form">
+    <h2>Profile</h2>
+      <table class="profile-table">
+        <tbody>
+          <tr>
+            <th class="profile-col1">名前</th>
+            <td class="profile-col2"><%= @user.name%></td>
+          </tr>
+          <tr>
+            <th class="profile-col1">ニックネーム</th>
+            <td class="profile-col2"><%= @user.nickname%></td>
+          </tr>
+          <tr>
+            <th class="profile-col1">Email</th>
+            <td class="profile-col2"><%= @user.email%></td>
+          </tr>
+          <tr>
+            <th class="profile-col1">生年月日</th>
+            <td class="profile-col2"><%= @user.birth_date%></td>
+          </tr>
+          <tr>
+            <th class="profile-col1">住所</th>
+            <td class="profile-col2"><%= @user.prefecture.name + @user.city_block%></td>
+          </tr>
+          <tr>
+            <th class="profile-col1">最寄駅</th>
+            <td class="profile-col2"><%= @user.station%></td>
+          </tr>
+        </tbody>
+      </table>
+    <div class="profile-edit-btn">
+      <%= link_to "プロフィールを編集",  edit_user_registration_path(@user.id) %>
+    </div>
+  </div>
+
+
+
+
+ <%# 記録フォーム＆一覧%>
+ <div class="sub-top">
+  <div class="lesson-room-form">
+    <h2>レッスンルーム</h2>
+      <% if current_user.admin?%>
+        <%= link_to new_lesson_room_path, class: 'room-btn' do %>
+        <span class='btn-text'>LessonRoom作成フォーム</span><br>
+        <% end %>
+      <% else %>
+      <h4 class="room-form-text"><%="#{@user.name}さんのレッスンルーム"%></h4>
+      <% end %>
+      <div class="room-form-block">
+        <div class="form-block"></div>
+        <% @lesson_rooms.each do |f|%>
+         <span>＊レッスンルーム＊</span>
+          <div class ="lesson-room-name">
+            <%= link_to lesson_room_path(f.id) do%>
+              <div class='room-text'><%= f.room_name %></div><br>
+            <% if current_user.admin? %>
+              <div class="room-text-2">
+                <div class=room-edit><%= link_to "編集", edit_lesson_room_path(f.id) %></div>
+                <div class=room-destroy><%= link_to "削除", lesson_room_path(f.id), method: :delete %></div>
+              </div>
+            <%end%>
+            <% end %>
+          </div>
+        <% end %>
+      </div>
+  </div>
+  <%# 記録フォーム＆一覧%>
+
+  <%# レッスン日程予約フォーム%>
+  <div class="calender-form">
+    <h2>レッスン予約</h2>
+    <%= link_to calenders_path, class: 'room-btn' do %>
+      <span class='btn-text'>レッスン受講日予約</span><br>
     <% end %>
-    <p>です。</p>
-  <% end %>
+
+    <h4 class="category-form-text">次回のレッスン日</h4>
+    <div class="calender-near-day">
+      <div class="near-block"></div>
+      <% unless @user.calenders.present? %>
+        <div class="calender-text">予約中のレッスン受講日はありません</div>
+      <% else %>
+        <div class="calender-text">次のレッスンは
+        <%= link_to calender_path(@calender.id) do%>
+          <%= @calender.day  %>
+          <%= @calender.time %>
+        <% end %>
+        です。</div>
+      <% end %>
+    </div>
+  </div>
+ </div>
 </div>
 <%# レッスン日程予約フォーム%>

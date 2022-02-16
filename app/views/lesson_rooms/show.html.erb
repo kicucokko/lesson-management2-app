@@ -1,3 +1,5 @@
+<%= render "shared/header"%>
+
 <%= link_to "ここは#{@lesson_room.room_name}のルームです",root_path, class: 'room-btn' %><br>
 
 <% if current_user.admin? %>
