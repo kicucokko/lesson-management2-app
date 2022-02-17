@@ -2,9 +2,15 @@
 
 <div class="container">
   <div class="row">
-    <div class="col-12 text-center">
-      <%= link_to "予約画面",user_path(current_user.id), class: 'room-btn' %>
+    <div class="calender-center">
+      <h1 class ="calender-top">
+      Calender
+      <p class="js">~レッスン予約カレンダー~</p>
+      </h1>
+    </div>
+    <div class="calender-sub-text">
       <p>3ヶ月先まで予約することができます。</p>
+      <p>＊当日におやすみされる場合は<span class="attention">必ず担当講師にご連絡ください</span>＊<p>
     </div>
     <div class="col-12 mt-3">
       <%= month_calendar events: @calenders do |date, calender| %>

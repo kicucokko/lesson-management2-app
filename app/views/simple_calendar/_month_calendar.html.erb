@@ -6,12 +6,12 @@
   <% calenders = Calender.calenders_after_three_month %>
   </div>
   
-  <table class="table table-striped">
-    <thead>
+  <table class="table-table-striped">
+    <thead class="table-header"> 
       <tr>
-       <th>時間</th>
+       <th class="table-header-times">時間</th>
         <% date_range.slice(0, 7).each do |day| %>
-          <th><%= t('date.abbr_day_names')[day.wday] %></th>
+          <th class="table-header-weeks"><%= t('date.abbr_day_names')[day.wday] %></th>
         <% end %>
       </tr>
     </thead>
@@ -19,28 +19,32 @@
     <tbody>
       <% date_range.each_slice(7) do |week| %>
         <tr>
-        <td></td>
+        <th></th>
           <% week.each do |day| %>
-            <%= content_tag :td, class: calendar.td_classes_for(day) do %>
+            <%= content_tag :th, class: calendar.td_classes_for(day) do %>
               <% if defined?(Haml) && respond_to?(:block_is_haml?) && block_is_haml?(passed_block) %>
+              <div class="table-header-week">
                 <% capture_haml(day, sorted_events.fetch(day, []), &passed_block) %>
+              </div>
               <% else %>
+              <div class="table-header-week">
                 <% passed_block.call day, sorted_events.fetch(day, []) %>
+              </div>
               <% end %>
             <% end %>
           <% end %>
         </tr>
         <% times.each do |time| %>
           <tr>
-            <td><%= time %></td>
+            <td class="table-times"><%= time %></td>
             <% week.each do |day| %>
               <td>
-              <% if check_calender(calenders, day, time) %>
+                <% if check_calender(calenders, day, time) ||Date.today  >= day %>
                   <%= '×' %>
                 <% else %>
-                  <%= link_to new_calender_path(day: day, time: time) do %>
-                   <%= '○' %>
-                  <%end%>
+                   <%= link_to new_calender_path(day: day, time: time) do %>
+                    <%= '○' %>
+                   <%end%>
                 <% end %>
               </td>
             <% end %>

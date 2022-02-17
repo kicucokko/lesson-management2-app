@@ -3,6 +3,7 @@ class CalendersController < ApplicationController
   authorize_resource # Abilty.rbのルールチェック
   
   def index
+    @user = Calender.find_by(user_id: params[current_user.id])
     @calenders = Calender.all.where("day >= ?", Date.current).where("day < ?", Date.current >> 3).order(day: :desc)
   end
   def new

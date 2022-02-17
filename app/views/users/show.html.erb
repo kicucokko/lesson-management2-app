@@ -86,7 +86,7 @@
     <h4 class="category-form-text">次回のレッスン日</h4>
     <div class="calender-near-day">
       <div class="near-block"></div>
-      <% unless @user.calenders.present? %>
+      <% unless @user.calenders.present? || Date.today <= @calender.day%>
         <div class="calender-text">予約中のレッスン受講日はありません</div>
       <% else %>
         <div class="calender-text">次のレッスンは
