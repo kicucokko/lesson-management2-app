@@ -3,6 +3,7 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @lesson_rooms = @user.lesson_rooms
-    @calender = @user.calenders.max
+    @calenders =Calender.includes(:user).order("day,time ASC")
+    @calender = @user.calenders.order("day ASC")
   end
 end

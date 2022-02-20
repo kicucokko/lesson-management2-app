@@ -3,13 +3,13 @@
   position:relative;
 }
 
-.calender-center{
+.room-center{
   text-align:center;
   background-color:white;
   opacity:0.8;
 }
 
-.calender-top{
+.room-top{
   border:5px double darkgray;
 }
 .js{

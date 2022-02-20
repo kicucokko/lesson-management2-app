@@ -1,23 +1,50 @@
 <%= render "shared/header"%>
-
-<h1>本日のレッスン</h1>
+<div class="container">
+  <div class="row">
+   <div class="room-center">
+      <h1 class="room-top">
+       LessonReview
+       <p class="js">~レッスン記録~</p>
+      </h1>
+    </div>
+  </div>
+</div>
 
 <div class="review-show">
-  <div class="review-box">
+  <table class="review-box">
     <% @review.each do |review| %>
-      <p><%= review.title %></p>
-      <p><%= review.time %></p>
-      <p><%= review.text %></p>
-      <p><%= review.home_work %></p>
-      <p><%= review.information %></p>
+        <tbody>
+          <tr>
+            <th class="profile-col1">Title</th>
+            <td class="profile-col2"><%= review.title%></td>
+          </tr>
+          <tr>
+            <th class="profile-col1">日時</th>
+            <td class="profile-col2"><%= review.time%></td>
+          </tr>
+          <tr>
+            <th class="profile-col1">内容</th>
+            <td class="profile-col2"><%= review.text%></td>
+          </tr>
+          <tr>
+            <th class="profile-col1">ホームワーク</th>
+            <td class="profile-col2"><%= review.home_work%></td>
+          </tr>
+          <tr>
+            <th class="profile-col1">お知らせ</th>
+            <td class="profile-col2"><%= review.information%></td>
+          </tr>
+        </tbody>
     <% end %>
-  </div>
-  <div class="col-12 text-right">
-    <%= link_to '編集する', edit_lesson_room_review_path(@review.ids) %>
-  </div>
-  <div class="col-12 text-right">
-    <%= link_to '削除する', lesson_room_review_path(@review.ids),method: :delete %>
-  </div>
+  </table>
+  <%if current_user.admin?%>
+    <div class="col-12 text-right">
+      <%= link_to '編集する', edit_lesson_room_review_path(@review.ids) %>
+    </div>
+    <div class="col-12 text-right">
+      <%= link_to '削除する', lesson_room_review_path(@review.ids),method: :delete %>
+    </div>
+  <% end %>
   <div class="col-12 text-right">
     <%= link_to '戻る', lesson_room_path(@lesson_room.id) %>
   </div>

@@ -68,7 +68,7 @@ h2{
 
 .room-text{
   color:black;
-  text-decoration:underline blueviolet 1px;
+  text-decoration: none;
   position:relative;
 }
 
@@ -79,14 +79,12 @@ h2{
 }
 
 
-
-
-
 /*レッスン日程予定*/
 .calender-near-day{
-  width: 25vw;
+  width: 30vw;
   border : 1px double #000;
   padding:10px;
+  overflow: scroll;
   position: relative;
 }
 .near-block{
@@ -96,13 +94,33 @@ h2{
   left:0;
   background-color:lightyellow;
   opacity:0.5;
-  position:absolute;
+  position: absolute;
 }
 .calender-text{
   color:black;
-  text-decoration:underline blueviolet 1px;
+  text-decoration:none;
   position: relative;
 }
 
+
+details > summary {
+  padding: 2px 6px;
+  width: 15em;
+  border: none;
+  cursor: pointer;
+}
+
+details > summary::-webkit-details-marker {
+  display: none;
+}
+
+  details[open] .open {
+  display: none ;
+
+}
+
+details:not([open]) .close {
+  display: none ;
+}
 
 
