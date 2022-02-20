@@ -1,0 +1,28 @@
+.lesson-room-main{
+  text-align:center;
+}
+.room-main-title{
+  border-top:5px double black;
+  border-bottom:5px double black;
+  margin:0 30vw 0 30vw;
+ 
+}
+
+.member-names-form{
+  padding:10px;
+
+}
+.room-member-name{
+  text-decoration: none;
+  color: black;
+  padding:2px;
+}
+
+.room-edit-form{
+  display:flex;
+  justify-content:center;
+}
+
+.room-edit-btn{
+  padding:0 5px 10px 5px;
+}

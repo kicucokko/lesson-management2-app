@@ -1,0 +1,43 @@
+.container{
+  width: 100vw;
+  position:relative;
+}
+
+.room-center{
+  text-align:center;
+  background-color:white;
+  opacity:0.8;
+}
+
+.room-top{
+  border:5px double darkgray;
+}
+.js{
+  font-size:20px;
+}
+
+.calender-sub-text{
+  text-align:center;
+}
+
+.attention{
+  color:red;
+  font-weight:600;
+}
+
+/*new & show */
+.calender-register{  
+  text-align:center;
+}
+
+.form-group{
+  font-size:20px;
+}
+
+.form-control{
+  font-size:20px;
+}
+
+.submit{
+  margin-top:10px;
+}

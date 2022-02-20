@@ -14,6 +14,8 @@ class LessonRoomsController < ApplicationController
   end
   def show
     @lesson_room = LessonRoom.find(params[:id])
+    @users = @lesson_room.users
+    
     @review = @lesson_room.reviews
     @reviews = @review.all
   end
@@ -38,4 +40,5 @@ class LessonRoomsController < ApplicationController
   def room_params
     params.require(:lesson_room).permit(:room_name, user_ids: [])
   end
+  
 end

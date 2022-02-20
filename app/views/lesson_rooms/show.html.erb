@@ -1,33 +1,66 @@
-<%= link_to "ここは#{@lesson_room.room_name}のルームです",root_path, class: 'room-btn' %><br>
+<%= render "shared/header"%>
 
-<% if current_user.admin? %>
-  <div class="col-12 text-right">
-    <%= link_to "編集", edit_lesson_room_path(@lesson_room.id) %>
+<div class="container">
+  <div class="row">
+   <div class="room-center">
+      <h1 class="room-top">
+      LeesonRoom
+      <p class="js">~レッスンルーム~</p>
+      </h1>
+    </div>
   </div>
-  <div class="col-12 text-right">
-    <%= link_to "削除", lesson_room_path(@lesson_room.id), method: :delete %>
+</div>
+
+<div class="lesson-room-main">
+  <div class="room-main-title">
+    <h4 class="room-main-title-text"><%=  "ここは#{@lesson_room.room_name}のルームです" %></h4>
   </div>
-<% end %>
-
-<% if current_user.admin? %>
-  <%= link_to new_lesson_room_review_path(@lesson_room.id), class: 'room-btn' do %>
-    <span class='btn-text'>レッスン記録作成フォーム</span><br>
-  <% end %>
-<% end %>
-
-<% @reviews.each do |f|%>
-  <div class ="review-name">
-   <%= link_to lesson_room_review_path(f.id), class: 'room-serect-btn' do%>
-   <span class='botn-text'><%= f.title %></span><br>
-   <% end %>
-   <% if current_user.admin? %>
-    <div class="col-12 text-right">
-      <%= link_to '削除する', lesson_room_review_path(@review.ids), method: :delete %>
+  <div class="room-member-names">
+   <div class= "room-member-names-title">
+    ＊Room Member＊
+   </div>
+    <div class="member-names-form">
+    <% @users.each do |user| %>
+        ||<%= link_to "#{user.name}さん" ,user_path(user.id) ,class:"room-member-name" %>||
+    <% end  %>
+    </div>
+  <div class="room-edit-form">
+  <% if current_user.admin? %>
+    <div class="room-edit-btn">
+      <%= link_to "編集", edit_lesson_room_path(@lesson_room.id) %>
+    </div>
+    <div class="room-edit-btn">
+      <%= link_to "削除", lesson_room_path(@lesson_room.id), method: :delete %>
     </div>
   <% end %>
   </div>
-<% end %>
 
-<div class="col-12 text-right">
-  <%= link_to 'MyPageへ戻る', user_path(current_user.id) %>
+  <div class="review-top-title">
+    ＊レッスン記録一覧＊
+  <div>
+
+  <% if current_user.admin? %>
+    <%= link_to new_lesson_room_review_path(@lesson_room.id), class: 'room-btn' do %>
+      <span class='btn-text'>レッスン記録作成フォーム</span><br>
+    <% end %>
+  <% end %>
+  <% if @review.present?%>
+    <% @reviews.each do |f|%>
+      <div class ="review-name">
+      <%= link_to lesson_room_review_path(f.id), class: 'room-serect-btn' do%>
+       <li><span class='botn-text'><%= f.title %></span></li><br>
+      <% end %>
+      <% if current_user.admin? %>
+        <div class="col-12 text-right">
+          <%= link_to '削除する', lesson_room_review_path(@review.ids), method: :delete %>
+        </div>
+      <% end %>
+      </div>
+    <% end %>
+  <% else %>
+    <div class="review-text">投稿されたレッスン記録はまだありません</div>
+  <% end %>
+  <div class="col-12 text-right">
+    <%= link_to 'MyPageへ戻る', user_path(current_user.id) %>
+  </div>
 </div>
