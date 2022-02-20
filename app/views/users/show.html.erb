@@ -70,7 +70,9 @@
               <% end %>
             </div>
           <% end %>
-          <%= link_to "⇨LessonRoom作成フォームはこちら",new_lesson_room_path, class: 'room-text'%>
+          <% if current_user.admin?%>
+             <%= link_to "⇨LessonRoom作成フォームはこちら",new_lesson_room_path, class: 'room-text'%>
+          <% end %>
         </div>
     </div>
     <%# 記録フォーム＆一覧%>
@@ -81,10 +83,10 @@
 
       <div class="calender-near-day">
         <div class="near-block"></div>
-        <%# 自分のマイページ表記分岐　生徒%>
+        <%# Customer　分岐%>
         <%if current_user.customer? %>
           <% if current_user.id == @user.id  %>
-            <% if @user.calenders.blank? || Date.today >= @user.calenders.min.day%>
+            <% if @user.calenders.blank? && Date.today <= @calender.min.day%>
               <div class="calender-text">予約中のレッスン受講日はありません</div>
             <% else %>
               <div class="calender-text">次のレッスンは
@@ -109,6 +111,7 @@
           <% else %>
             <div class="calender-text">閲覧できません</div>
           <% end %> 
+        <%# Admin 分岐%>
         <% elsif current_user.admin? %>
           <details class="calender-text" > 
             <summary>
@@ -124,10 +127,10 @@
                 <% end %> 
               <% end %>    
           </details>
+          <%= link_to "⇨レッスン受講日予約はこちら",calenders_path, class: 'calender-text'  %>
         <% else %>
          <div class="calender-text">予約中のレッスン日はありません</div>
         <% end %>
-        <%= link_to "⇨レッスン受講日予約はこちら",calenders_path, class: 'calender-text'  %>
       </div>
     </div>
   </div>
