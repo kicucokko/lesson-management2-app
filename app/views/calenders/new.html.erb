@@ -1,18 +1,23 @@
+<%= render "shared/header"%>
+
 <div class="container">
   <div class="row">
-    <div class="col-12 text-center title">
-      <h1>新規予約画面</h1>
+    <div class="room-center">
+      <h1 class="room-top">
+      Reservation form
+      <p class="js">~新規予約画面~</p>
+      </h1>
     </div>
-    <div class="col-12 mt-3 content">
+    <div class="calender-register">
       <%= form_with model: @calender, local: true, class: 'form' do |form| %>
       <%#= render 'layouts/error_messages', model: form.object %>
       <div class="day form-group">
         <%= form.label :day, '日付' %>
-        <%= form.text_field :day, class: 'form-control', value: @day %>
+        <%= form.text_field :day, class: 'form-control', value: @day , placeholder: "2022-01-01" %>
       </div>
       <div class="time form-group">
         <%= form.label :time, '時間' %>
-        <%= form.text_field :time, class: 'form-control', value: @time %>
+        <%= form.text_field :time, class: 'form-control', value: @time ,placeholder: "9:00"%>
       </div>
       <%= form.hidden_field :user_id, value: current_user.id %>
       <%= form.hidden_field :start_time, value: @start_time %>

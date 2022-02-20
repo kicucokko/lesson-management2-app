@@ -1,0 +1,10 @@
+.review-show{
+  text-align:center;
+}
+.review-box{
+    width: 30vw;
+    margin:auto;
+    background-color:cornsilk;
+    border-style:solid;
+    position: relative;
+  }

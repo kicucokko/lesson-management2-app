@@ -1,9 +1,14 @@
+<%= render "shared/header"%>
+
 <div class="container">
   <div class="row">
-    <div class="col-12 text-center title">
-     予約詳細画面
+   <div class="room-center">
+      <h1 class="room-top">
+      Confirmation
+      <p class="js">~予約確認画面~</p>
+      </h1>
     </div>
-    <div class="col-12 mt-3 text-center content">
+    <div class="calender-register">
       <div>
         <label><strong>日付：</strong></label>
         <p style="display:inline;"><%= @calender.day %></p>
@@ -12,13 +17,12 @@
         <label><strong>時間：</strong></label>
         <p style="display:inline;"><%= @calender.time %></p>
       </div>
-    </div>
-    <div class="col-12 text-right">
-      <%= link_to '予約画面に戻る', calenders_path %>
-    </div>
-    </div>
-    <div class="col-12 text-right">
-      <%= link_to '予約をキャンセルする', calender_path(@calender.id), method: :delete %>
+      <div class="col-12 text-right">
+        <%= link_to '予約画面に戻る', calenders_path %>
+      </div>
+      <div class="col-12 text-right">
+        <%= link_to '予約をキャンセルする', calender_path(@calender.id), method: :delete %>
+      </div>
     </div>
   </div>
 </div>

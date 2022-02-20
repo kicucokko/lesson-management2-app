@@ -1,10 +1,12 @@
+<%= render "shared/header"%>
+
 <h1>ようこそ、LESSON MANAGEMENT へ</h1>
 
 <h1>Topページ</h1>
 <% if user_signed_in? %> 
   <p><%= current_user.nickname %> さん、こんにちは</p>
     <%= link_to user_path(current_user.id), class: 'log-in-btn' do %>
-    <span class='btn-text'>ログインページ</span><br>
+    <span class='btn-text'>Mypageはこちら</span><br>
   <% end %>
     <%= link_to destroy_user_session_path,method: :delete, class: 'log-out-btn' do %>
     <span class='btn-text'>ログアウト</span><br>

@@ -1,0 +1,51 @@
+td{
+  border-bottom:dotted black;
+  text-align:center;
+}
+
+.calendar-heading{
+  font-size: 25px;
+  margin-left:10%;
+}
+
+.table-header-week{
+  border-bottom: solid gray;
+  background-color: #dcc8dc;
+}
+
+.table-table-striped{
+  width: 80vw;
+  margin:auto;
+  background-color:cornsilk;
+  border-style:solid;
+  opacity:0.8;
+}
+
+.table-header-times{
+  width:5vw;
+}
+
+.table-header-weeks{
+  border:solid black;
+  background-color:lightgray;
+}
+.today {
+  color:red;
+}
+
+.past {
+  color:gray;
+}
+
+.prev-month {
+  color:lightgray;
+}
+
+.next-month {
+  color:#5c73b7;
+ }
+
+ .check-check{
+   color:red;
+ }
+
