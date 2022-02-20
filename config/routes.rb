@@ -11,4 +11,5 @@ Rails.application.routes.draw do
     resources :reviews,only:[:new,:create,:show,:edit,:update,:destroy]
   end
   resources :calenders,only:[:index,:new,:create,:show,:destroy]
+  resources :purchases, only:[:index,:create]
 end
