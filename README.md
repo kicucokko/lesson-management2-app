@@ -12,9 +12,12 @@
 | city_block        | string    |null: false              |
 | station           | string    |                         |
 
-- has_many :roles, through :user_roles
+- has_many :user_roles
+- has_many :roles, through: :user_roles
+- has_many :user_rooms
 - has_many :lesson_rooms, through: :user_rooms
 - has_many :reviews
+- has_many :calenders
 
 *Action Hash*
 - belongs_to_active_hash :prefecture
@@ -36,10 +39,10 @@
 
 
 ## user_roles (ユーザーと権限管理の中間テーブル)
-| column            | Type      | Options                     |
-| ----------------- | --------- | --------------------------- |
-| user              | references|null: false,foreign_key: true|
-| role              | references|null: false,foreign_key: true|
+| column            | Type      | Options                                 |
+| ----------------- | --------- | --------------------------------------- |
+| user              | references|null: false,foreign_key: true,unique:true|
+| role              | references|null: false,foreign_key: true,unique:true||
 
 - belongs_to :user
 - belongs_to :role
@@ -55,7 +58,9 @@
 | ----------- | ------ | ----------- |
 | room_name   | string | null: false |
 
+- has_many :user_rooms, dependent: :destroy
 - has_many :users, through: :user_rooms
+- has_many :reviews, dependent: :destroy
 
 ## user_rooms (ユーザーと部屋の中間テーブル)
 | column            | Type      | Options                     |
@@ -72,7 +77,7 @@
 | ----------------- | --------- | ----------------------------- |
 | time              | datetime  | null: false                   |
 | title             | string    |                               |
-| text              | string    | null: false                   |
+| text              | text      | null: false                   |
 | home_work         | string    | null: false                   |
 | information       | string    |                               |
 | user              | references| null: false,foreign_key: true |
@@ -87,26 +92,14 @@
 ## Calenders テーブル (予定設定機能)
 | column            | Type      | Options                      |
 | ----------------- | --------- | ---------------------------- |
-| time_date_id      | integer   | null: false                  |
-| reserver          | references| null: false,foreign_key: true|
-| admin             | references| null: false,foreign_key: true|
+| day               | date      | null: false                  |
+| time              | string    | null: false                  |
+| user_id           | bigint    | null: false                  |
+| start_time        | datetime  | null: false                  |
 
 - belongs_to :user
-- has_many :reservers
 
 *gem 'simple_calendar', '~> 2.0'
-
-
-## Reserves テーブル (予定登録機能)
-| column            | Type      | Options                      |
-| ----------------- | --------- | ---------------------------- |
-| time_date_id      | integer   | null: false                  |
-| calender          | references| null: false,foreign_key: true|
-| customer          | references| null: false,foreign_key: true|
-
-- belongs_to :admin
-- belongs_to :customer
-- belongs_to :calender
 
 
 ## Settings テーブル (購入金額設定機能)
