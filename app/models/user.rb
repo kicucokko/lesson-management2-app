@@ -18,6 +18,7 @@ class User < ApplicationRecord
   has_many :lesson_rooms, through: :user_rooms
   has_many :reviews
   has_many :calenders
+  has_many :purchases
   extend ActiveHash::Associations::ActiveRecordExtensions 
   belongs_to :prefecture
 end

@@ -1,0 +1,51 @@
+<%= render "shared/header"%>
+<div class="container">
+  <div class="row">
+   <div class="room-center">
+      <h1 class="room-top">
+       月謝・お支払いフォーム
+      </h1>
+    </div>
+  </div>
+</div>
+
+<div class="purchase-sub-main">
+      <ul class="purchase-sub-text">
+        <li><strong>初級</strong>8000円/月(年間40回)</li>
+        <li><strong>中級</strong>10000円/月(年間40回)</li>
+        <li><strong>上級</strong>15000円/月(年間40回)</li>
+      </ul>
+</div>
+
+<%= form_with  model: @purchase, id: 'charge-form', class: 'card-form',local: true do |f| %>
+<%= render 'shared/error_messages', model: @purchase %>
+  <div class='form-wrap'>
+    <%= f.label :price, "金額" %>
+    <%= f.text_field :price, id: :priceSelect, list:"price-serect", class:"price", placeholder:"例)2000" %>
+    <datalist id="price-serect">
+      <option value= "8000">
+      <option value= "10000">
+      <option value= "15000">
+    </datalist>
+  </div>
+  <div class='form-wrap'>
+    <%= f.label :number,  "カード番号" %>
+    <%= f.text_field :number, class:"number", placeholder:"カード番号(半角英数字)", maxlength:"16" ,autocomplete:"off"%>
+  </div>
+  <div class='form-wrap'>
+    <%= f.label :cvc ,"ＣＶＣ" %>
+    <%= f.text_field :cvc, class:"cvc", placeholder:"カード背面4桁もしくは3桁の番号", maxlength:"4" %>
+  </div>
+  <div class='form-wrap'>
+    <p>有効期限</p>
+    <div class='input-expiration-date-wrap'>
+      <%= f.text_field :exp_month, class:"exp_month", placeholder:"例)3" %>
+      <p>月</p>
+      <%= f.text_field :exp_year, class:"exp_year", placeholder:"例)24" %>
+      <p>年</p>
+    </div>
+  <%= f.submit "お支払い", class:"button", id: "button" %>
+<% end %>
+ <div class="col-12 text-right">
+    <%= link_to '戻る', user_path(current_user.id) %>
+  </div>

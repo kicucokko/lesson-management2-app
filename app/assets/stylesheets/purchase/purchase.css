@@ -1,0 +1,52 @@
+.card-form{
+  width: 50vw;
+  
+  margin-left:25%;
+  text-align: center;
+}
+
+.form-wrap{
+  display: flex;
+  align-items:center;
+  flex-direction: column;
+}
+
+.exp_month{
+  resize:none;
+}
+
+.exp_year{
+  resize:none;
+}
+
+.input-expiration-date-wrap{
+  display: flex;
+}
+
+
+.button{
+  margin-top: 30px;
+  height: 30px;
+  width: 100px;
+}
+
+.purchase-sub-text{
+  text-align:center;
+  list-style: none;
+}
+
+.number{
+  width:20vw;
+}
+.cvc{
+  width:15vw;
+}
+.exp_month{
+  width:10vw;
+  height:5vh;
+}
+
+.exp_year{
+  width:10vw;
+  height:5vh;
+}
