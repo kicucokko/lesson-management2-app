@@ -28,8 +28,8 @@ const pay = () => {
       document.getElementById("purchase_exp_year").removeAttribute("name");
 
       document.getElementById("charge-form").submit();
+      alert('支払いが完了しました');
     });
   });
 };
-
 window.addEventListener("load", pay);

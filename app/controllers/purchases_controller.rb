@@ -6,7 +6,7 @@ class PurchasesController < ApplicationController
     @purchase = Purchase.new(purchase_params)
     if @purchase.valid?
       @purchase.save
-      return redirect_to root_path
+      return redirect_to user_path(current_user.id)
     else
       render 'index'
     end

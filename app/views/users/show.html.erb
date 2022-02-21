@@ -133,12 +133,18 @@
         <% end %>
       </div>
     </div>
-  </div>
- <% end %>
-</div>
+ 
 <%# レッスン日程予約フォーム%>
 
 <%# 支払いフォーム %>
-<div class="purchase-form-main">
- <%= link_to "支払いフォームはこちら",purchases_path%>
+
+    <div class="purchase-form">
+      <h2>お支払いフォーム</h2>
+          <div class="room-form-block">
+           <div class="form-block"></div>
+        <%= link_to "お支払いフォームはこちら",purchases_path,class:"room-text"%>
+        </div>
+    </div>
+  </div>
+ <% end %>
 </div>
