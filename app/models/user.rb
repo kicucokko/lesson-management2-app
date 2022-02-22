@@ -5,11 +5,12 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   enum role: { admin: 1, customer: 2 }
   with_options presence: true do
+    validates :role
     validates :nickname
     validates :name
-    validates :name_kana
+    validates :name_kana ,format: { with:/\A[ァ-ヶー－]+\z/,message: 'は全角カタカナで入力してください' }
     validates :birth_date
-    validates :prefecture_id
+    validates :prefecture_id,numericality: { other_than: 1,message: 'を選択してください'} 
     validates :city_block
     validates :image
   end

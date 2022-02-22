@@ -59,8 +59,12 @@ gem 'pry-rails'
 gem 'simple_calendar', '~> 2.0'
 gem 'rails-i18n' 
 gem 'enum_help'
-gem 'rspec-rails'
-gem 'factory_bot_rails'
+# 支払い機能
 gem 'payjp'
+# 画像関連
 gem 'mini_magick'
 gem 'image_processing', '~> 1.2'
+# テスト
+gem 'rspec-rails','~> 4.0.0'
+gem 'factory_bot_rails'
+gem 'faker'
