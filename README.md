@@ -76,9 +76,9 @@
 | column            | Type      | Options                       |
 | ----------------- | --------- | ----------------------------- |
 | time              | datetime  | null: false                   |
-| title             | string    |                               |
+| title             | string    | null: false                   |
 | text              | text      | null: false                   |
-| home_work         | string    | null: false                   |
+| home_work         | string    |                   |
 | information       | string    |                               |
 | user              | references| null: false,foreign_key: true |
 | lesson_room       | references| null: false,foreign_key: true |
