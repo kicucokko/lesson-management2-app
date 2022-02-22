@@ -3,7 +3,7 @@
     <% if user_signed_in? %>
     <%= link_to image_tag("IMG_0283.jpg", class:"lesson-room-icon"), user_path(current_user.id) %>
     <% else %>
-    <%= link_to image_tag("IMG_0283.jpg", class:"lesson-room-icon"),  new_user_session_path %>
+    <%= link_to image_tag("IMG_0283.jpg", class:"lesson-room-icon"),  root_path %>
     <% end %>
   </div>
   <div class='nav'>

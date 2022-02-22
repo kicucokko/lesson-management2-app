@@ -1,11 +1,10 @@
-<h2>登録内容編集</h2>
-
+<%= render "shared/header"%>
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
         <%= render "devise/shared/error_messages", resource: resource %>
   <div class='form-wrap'>
   <div class='form-header'>
     <h1 class='form-header-text'>
-     新規登録
+   登録内容編集
     </h1>
   </div>
   <div class="field">
@@ -14,6 +13,12 @@
       <span class="indispensable">必須</span>
     </div>
     <%= f.select :role, User.roles_i18n.invert,{}%>
+  </div>
+  <div class="field">
+    <div class="form-text-wrap">
+      <label class="form-text">プロフィール画像</label>
+    </div>
+    <%= f.file_field :image, id:"item-image", class:"hidden" %>
   </div>
   <div class="field">
     <div class='form-text-wrap'>
@@ -64,7 +69,7 @@
   </div>
   <div class="field">
     <div class='form-text-wrap'>
-      <label class="form-text">生年月日</label>
+      <label class="form-text1">生年月日</label>
       <span class="indispensable">必須</span>
     </div>
     <div class='input-birth-wrap'>
@@ -80,7 +85,6 @@
                     date_separator: '%s'),
                   "<p> 年 </p>", "<p> 月 </p>") + "<p> 日 </p>" %>
     </div>
-    <p class='info-text'>※ 本人情報は正しく入力してください。会員登録後、修正するにはお時間を頂く場合があります。</p>
   </div>
   <div class="field">
     <div class="weight-bold-text">

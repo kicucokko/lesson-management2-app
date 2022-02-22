@@ -40,6 +40,13 @@
     </div>
     <%= f.text_field :information, autofocus: true, autocomplete: "on" %>
   </div>
+  <div class="field">
+    <div class="form-text-wrap">
+      <label class="form-text">楽譜など</label>
+    </div>
+    <%= f.file_field :image, id:"item-image", class:"hidden" %>
+  </div>
+  
   <div class="actions">
     <%= f.submit "登録" %>
   </div>

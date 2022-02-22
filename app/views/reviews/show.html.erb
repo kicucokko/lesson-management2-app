@@ -1,5 +1,13 @@
-c
-
+<%= render "shared/header"%>
+<div class="container">
+  <div class="row">
+   <div class="room-center">
+      <h1 class="room-top">
+       レッスンの振り返り
+      </h1>
+    </div>
+  </div>
+</div>
 <div class="review-show">
   <table class="review-box">
     <% @review.each do |review| %>
@@ -23,6 +31,10 @@ c
           <tr>
             <th class="profile-col1">お知らせ</th>
             <td class="profile-col2"><%= review.information%></td>
+          </tr>
+          <tr>
+            <th class="profile-col1">楽譜</th>
+            <td class="profile-col2"><%=image_tag review.image.variant(resize: '250x250'), class: 'review-image' if review.image.attached?%></td>
           </tr>
         </tbody>
     <% end %>

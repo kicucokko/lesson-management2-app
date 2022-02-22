@@ -11,6 +11,7 @@
 <div class=main-top>
   <div class="profile-form">
     <h2>Profile</h2>
+    <%= image_tag @user.image.variant(resize: '500x500'), class: 'user-image' if @user.image.attached?%>
       <table class="profile-table">
         <tbody>
           <tr>

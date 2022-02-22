@@ -37,6 +37,6 @@ class ReviewsController < ApplicationController
 
   private
   def review_params
-    params.require(:review).permit(:time,:title,:text,:home_work,:information).merge(user_id: current_user.id,lesson_room_id: params[:lesson_room_id])
+    params.require(:review).permit(:time,:title,:text,:home_work,:information,:image).merge(user_id: current_user.id,lesson_room_id: params[:lesson_room_id])
   end
 end
