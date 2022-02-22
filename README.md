@@ -106,9 +106,6 @@
 | column            | Type      | Options                      |
 | ----------------- | --------- | ---------------------------- |
 | price             | integer   | null: false                  |
-| customer          | references| null: false,foreign_key: true|
-| admin             | references| null: false,foreign_key: true|
 
-- belongs_to :admin
-- belongs_to :customer
-- has_many :setting
+- belongs_to :user
+
