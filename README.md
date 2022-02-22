@@ -102,20 +102,6 @@
 *gem 'simple_calendar', '~> 2.0'
 
 
-## Settings テーブル (購入金額設定機能)
-| column            | Type      | Options                      |
-| ----------------- | --------- | ---------------------------- |
-| level_id          | string    | null: false                  |
-| price             | integer   | null: false                  |
-| admin             | references| null: false,foreign_key: true|
-| purchase          | references| null: false,foreign_key: true|
-
-- belongs_to :admin
-- belongs_to :purchase
-
-*Action Hash*
-- belongs_to_active_hash :level
-
 ## Purchases テーブル (購入管理機能)
 | column            | Type      | Options                      |
 | ----------------- | --------- | ---------------------------- |

@@ -10,12 +10,12 @@
     </div>
     <div class="calender-register">
       <%= form_with model: @calender, local: true, class: 'form' do |form| %>
-      <%#= render 'layouts/error_messages', model: form.object %>
-      <div class="day form-group">
+      <%= render 'shared/error_messages', model: form.object %>
+      <div class="day-form-group">
         <%= form.label :day, '日付' %>
         <%= form.text_field :day, class: 'form-control', value: @day , placeholder: "2022-01-01" %>
       </div>
-      <div class="time form-group">
+      <div class="time-form-group">
         <%= form.label :time, '時間' %>
         <%= form.text_field :time, class: 'form-control', value: @time ,placeholder: "9:00"%>
       </div>
