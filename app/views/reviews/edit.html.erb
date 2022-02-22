@@ -37,6 +37,12 @@
     <div class="form-text-wrap">
      <label class="form-text">Information</label>
     </div>
+    <div class="field">
+    <div class="form-text-wrap">
+      <label class="form-text">楽譜など</label>
+    </div>
+    <%= f.file_field :image, id:"item-image", class:"hidden" %>
+  </div>
     <%= f.text_field :information, autofocus: true, autocomplete: "on" %>
   </div>
   <div class="actions">

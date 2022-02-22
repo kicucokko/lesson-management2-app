@@ -11,6 +11,7 @@ class User < ApplicationRecord
     validates :birth_date
     validates :prefecture_id
     validates :city_block
+    validates :image
   end
   has_many :user_roles
   has_many :roles, through: :user_roles
@@ -19,6 +20,8 @@ class User < ApplicationRecord
   has_many :reviews
   has_many :calenders
   has_many :purchases
+
+  has_one_attached :image
   extend ActiveHash::Associations::ActiveRecordExtensions 
   belongs_to :prefecture
 end

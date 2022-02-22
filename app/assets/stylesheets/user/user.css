@@ -20,9 +20,29 @@ body{
   justify-content:space-around;
 }
 
+.field{
+  text-align: center;
+}
+.input-birth-wrap{
+  display:flex;
+  align-items:center;
+  margin:0 20vw 0 20vw;
+  
+}
+.form_text1{
+  margin-left:20vw;
+}
+
+.actions{
+  text-align: center;
+}
 /*プロフィール*/
 h2{
   text-align:center;
+}
+
+.profile-form{
+  text-align: center;
 }
 .profile-table{
   width: 25vw;
