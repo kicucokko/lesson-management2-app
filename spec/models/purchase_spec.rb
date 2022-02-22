@@ -2,6 +2,7 @@ require 'rails_helper'
 
 RSpec.describe Purchase, type: :model do
   before do
+    @user = FactoryBot.build(:user)
     @purchase = FactoryBot.build(:purchase)
   end
 
@@ -15,12 +16,12 @@ RSpec.describe Purchase, type: :model do
     it "priceが空では保存ができないこと" do
       @purchase.price = nil
       @purchase.valid?
-      expect(@purchase.errors.full_messages).to include("Price can't be blank")
+      expect(@purchase.errors.full_messages).to include("Priceを入力してください")
     end
     it "tokenが空では登録できないこと" do
-      @order.token = nil
-      @order.valid?
-      expect(@order.errors.full_messages).to include("Token can't be blank")
+      @purchase.token = nil
+      @purchase.valid?
+      expect(@purchase.errors.full_messages).to include("Tokenを入力してください")
     end
   end
 end
