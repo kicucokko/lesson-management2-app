@@ -1,6 +1,7 @@
 class CalendersController < ApplicationController
   before_action :authenticate_user!
   authorize_resource # Abilty.rbのルールチェック
+  before_action :set_calender, only:[:show,:destroy]
   
   def index
     @calenders = Calender.all.where("day >= ?", Date.current).where("day < ?", Date.current >> 3).order(day: :desc)
@@ -10,9 +11,6 @@ class CalendersController < ApplicationController
     @day = params[:day]
     @time = params[:time]
     @start_time = DateTime.parse(@day + " " + @time + " " + "JST")
-  end
-  def show
-    @calender = Calender.find(params[:id])
   end
 
   def create
@@ -24,8 +22,10 @@ class CalendersController < ApplicationController
     end
   end
 
+  def show
+  end
+
   def destroy
-    @calender = Calender.find(params[:id])
     @calender.destroy
     redirect_to calenders_path
   end
@@ -34,5 +34,8 @@ class CalendersController < ApplicationController
   private
   def calender_params
     params.require(:calender).permit(:day, :time, :user_id, :start_time)
+  end
+  def set_calender
+    @calender = Calender.find(params[:id])
   end
 end

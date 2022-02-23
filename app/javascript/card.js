@@ -20,6 +20,7 @@ const pay = () => {
         const renderDom = document.getElementById("charge-form");
         const tokenObj = `<input value=${token} name='token' type="hidden"> `;
         renderDom.insertAdjacentHTML("beforeend", tokenObj);
+        alert('支払いが完了しました');
       }
 
       document.getElementById("purchase_number").removeAttribute("name");
@@ -28,7 +29,6 @@ const pay = () => {
       document.getElementById("purchase_exp_year").removeAttribute("name");
 
       document.getElementById("charge-form").submit();
-      alert('支払いが完了しました');
     });
   });
 };

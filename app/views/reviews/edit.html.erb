@@ -6,6 +6,7 @@
     </h1>
   </div>
   <%= form_with model: @review, url: lesson_room_review_path(@review.id), method: :put,class: 'registration-main',local: true do |f| %>
+    <%= render 'shared/error_messages', model: @review %>
   <div class="field">
     <div class="form-text-wrap">
      <label class="form-text" for="">日時</label>
@@ -49,4 +50,5 @@
     <%= f.submit "更新" %>
   </div>
   <% end %>
+  <%= link_to '戻る', lesson_room_review_path(@review.id) %>
 </div>

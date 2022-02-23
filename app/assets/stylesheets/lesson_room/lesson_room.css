@@ -26,3 +26,13 @@
 .room-edit-btn{
   padding:0 5px 10px 5px;
 }
+
+.lesson_room-form__field{
+  text-align: center;
+}
+.lesson_room-form__input{
+  width: 25vw;
+}
+.lesson_room-form__label{
+  width: 20vw;
+}

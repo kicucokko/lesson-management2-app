@@ -1,40 +1,45 @@
 <%= render "shared/header"%>
 
-<div class='chat-room-form'>
-  <h1>レッスンルーム編集</h1>
-  <%=form_with model: @lesson_room, url: lesson_room_path(@lesson_room.id),method: :put ,local: true do |f|%>
-    <div class='chat-room-form__field'>
-      <div class='chat-room-form__field--left'>
-        <%= f.label :レッスンルーム名, class: 'chat-room-form__label'%>
-      </div>
-      <div class='chat-room-form__field--right'>
-        <%= f.text_field :room_name, class: 'chat__room_name chat-room-form__input', placeholder: 'レッスンルーム名を入力してください'%>
-      </div>
-    </div>
-    <div class='chat-room-form__field'>
-    </div>
-    <div class='chat-room-form__field'>
-      <div class='chat-room-form__field--left'>
-        <label class='chat-room-form__label' for='chat_room_チャットメンバー'>ユーザー</label>
-      </div>
-      <div class='chat-room-form__field--right'>
-        <select name="lesson_room[user_ids][]">
-          <option value="">ユーザーを選択してください</option>
-          <% User.where.not(id: current_user.id).each do |user| %>
-            <option value=<%= user.id %>><%= user.name %></option>
-          <% end %>
-        </select>
-        <input name="lesson_room[user_ids][]" type="hidden" value=<%= current_user.id %>>
-      </div>
-    </div>
-    <div class='chat-room-form__field'>
-      <div class='chat-room-form__field--left'></div>
-      <div class='chat-room-form__field--right'>
-        <%= f.submit class: 'chat-room-form__action-btn'%>
-      </div>
-    </div>
-  <% end %>
-  <div class="col-12 text-right">
-    <%= link_to '戻る', lesson_room_path(@lesson_room.id) %>
+<div class='form-wrap'>
+  <div class='form-header'>
+    <h1 class='form-header-text'>
+     レッスンルーム編集
+    </h1>
   </div>
+    <%=form_with model: @lesson_room, url: lesson_room_path(@lesson_room.id),method: :put ,local: true do |f|%>
+      <%= render 'shared/error_messages', model: @lesson_room %>
+      <div class='lesson_room-form__field'>
+        <div class='lesson_room-form__field--left'>
+          <%= f.label :レッスンルーム名, class: 'lesson_room-form__label'%>
+        </div>
+        <div class='lesson_room-form__field--right'>
+          <%= f.text_field :room_name, class: 'lesson_room_name lesson_room-form__input', placeholder: 'レッスンルーム名を入力してください'%>
+        </div>
+      </div>
+      <div class='lesson_room-form__field'>
+      </div>
+      <div class='lesson_room-form__field'>
+        <div class='lesson_room-form__field--left'>
+          <label class='lesson_room-form__label' for='chat_room_チャットメンバー'>ユーザー</label>
+        </div>
+        <div class='lesson_room-form__field--right'>
+          <select name="lesson_room[user_ids][]">
+            <option value="">ユーザーを選択してください</option>
+            <% User.where.not(id: current_user.id).each do |user| %>
+              <option value=<%= user.id %>><%= user.name %></option>
+            <% end %>
+          </select>
+          <input name="lesson_room[user_ids][]" type="hidden" value=<%= current_user.id %>>
+        </div>
+      </div>
+      <div class='lesson_room-form__field'>
+        <div class='lesson_room-form__field--left'></div>
+        <div class='lesson_room-form__field--right'>
+          <%= f.submit class: 'lesson_room-form__action-btn'%>
+        </div>
+      </div>
+    <% end %>
+    <div class="col-12 text-right">
+      <%= link_to '戻る', lesson_room_path(@lesson_room.id) %>
+    </div>
 </div>
