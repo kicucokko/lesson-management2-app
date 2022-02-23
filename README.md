@@ -2,6 +2,7 @@
 
 | column            | Type      | Options                 |
 | ----------------- | --------- | ----------------------- |
+| role              | integer   |null: false              |
 | nickname          | string    |null: false              |
 | email             | string    |null: false,unique: true |
 | encrypted_password| string    |null: false              |
@@ -18,6 +19,8 @@
 - has_many :lesson_rooms, through: :user_rooms
 - has_many :reviews
 - has_many :calenders
+- has_many :purchases
+
 
 *Action Hash*
 - belongs_to_active_hash :prefecture
@@ -26,7 +29,7 @@
 ## role テーブル（権限管理テーブル）
 | column            | Type      | Options                 |
 | ----------------- | --------- | ----------------------- |
-| room_name              | string    | null: false             |
+| room_name         | string    | null: false             |
 
 - has_many :users, through :user_roles
 
@@ -78,7 +81,7 @@
 | time              | datetime  | null: false                   |
 | title             | string    | null: false                   |
 | text              | text      | null: false                   |
-| home_work         | string    |                   |
+| home_work         | string    |                               |
 | information       | string    |                               |
 | user              | references| null: false,foreign_key: true |
 | lesson_room       | references| null: false,foreign_key: true |
@@ -106,6 +109,10 @@
 | column            | Type      | Options                      |
 | ----------------- | --------- | ---------------------------- |
 | price             | integer   | null: false                  |
+| user              | references| null: false,foreign_key: true|
 
 - belongs_to :user
+
+*gem 'payjp'
+
 
