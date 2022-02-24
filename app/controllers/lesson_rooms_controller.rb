@@ -15,7 +15,6 @@ class LessonRoomsController < ApplicationController
   end
   def show
     @users = @lesson_room.users
-    
     @review = @lesson_room.reviews
     @reviews = @review.all
   end

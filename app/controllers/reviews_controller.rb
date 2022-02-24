@@ -1,7 +1,7 @@
 class ReviewsController < ApplicationController
   authorize_resource # Abilty.rbのルールチェック
-  before_action :set_lessno_room, only:[:new,:create,:show]
-  before_action :find_lessno_room, only:[:edit,:update,:destroy]
+  before_action :set_lessno_room, only:[:new,:create]
+  before_action :find_review, only:[:edit,:update,:destroy]
   
   def new
     @review = Review.new
@@ -16,12 +16,18 @@ class ReviewsController < ApplicationController
   end
   def show
     @review = Review.where(id: params[:lesson_room_id])
+    @lesson_room = Review.find(params[:lesson_room_id])
   end
   def edit
+    @lesson_room = LessonRoom.find(params[:id])
   end
   def update
-    if @review.update(review_params)
-     redirect_to lesson_room_path
+    lesson_room = LessonRoom.find(params[:id])
+   
+    review = Review.find(params[:lesson_room_id])
+
+    if review.update(review_params)
+     redirect_to lesson_room_path(review.lesson_room.id)
     else
       render :edit
     end
@@ -38,7 +44,7 @@ class ReviewsController < ApplicationController
   def set_lessno_room
     @lesson_room = LessonRoom.find(params[:lesson_room_id])
   end
-  def find_lesson_room
+  def find_review
     @review = Review.find_by(id: params[:lesson_room_id])
   end
 end
