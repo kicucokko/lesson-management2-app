@@ -11,6 +11,11 @@ class PurchasesController < ApplicationController
       render 'index'
     end
   end
+  def show
+    @purchases = Purchase.includes(:user).order("created_at DESC")
+    @purchase = Purchase.where(user_id: params[:id])
+  end
+
   private
   def purchase_params
     params.require(:purchase).permit(:price).merge(user_id: current_user.id,token: params[:token])
