@@ -50,3 +50,14 @@
   width:10vw;
   height:5vh;
 }
+
+.purchase-main-list,.purchase-main-title{
+  text-align: center;
+}
+.purchase-table{
+  width: 25vw;
+  margin:auto;
+  background-color:lightyellow;
+  border-style:solid;
+  position: relative;
+}

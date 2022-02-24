@@ -1,0 +1,48 @@
+<%= render "shared/header"%>
+<div class="container">
+  <div class="row">
+   <div class="room-center">
+      <h1 class="room-top">
+       お支払い状況確認
+      </h1>
+    </div>
+  </div>
+</div>
+
+<div class="purchase-main-form">
+  <% if current_user.admin? && @purchases.present?%>
+    <h4 class="purchase-main-title">
+    生徒様 お支払い済み一覧
+    <h4>
+    <table class ="purchase-table" >
+    <tbody>
+      <% @purchases.each do |purchase|%>
+       <tr>
+        <th><%= purchase.created_at.strftime('%Y/%m/%d')  %></th>
+        <td><%= purchase.price %>円 <%= purchase.user.name%>様 </td>
+      </tr>
+      <% end %>
+     </tbody>
+     </table>
+
+  <% elsif current_user.customer? && @purchase.present?%>
+    <h4 class="purchase-main-title">
+    <%=current_user.name%>様 お支払い済み一覧
+    <h4>
+   <table class ="purchase-table" >
+    <tbody>
+      <% @purchase.each do |purchase|%>
+       <tr>
+        <th><%= purchase.created_at.strftime('%Y/%m/%d')  %></th>
+        <td><%= purchase.price %>円 </td>
+      </tr>
+      <% end %>
+     </tbody>
+     </table>
+
+  <% elsif @purchase.blank?  %>
+    <div class="purchase-main-list">
+      <p>現在お支払い済み履歴はございません</p>
+    </div>
+  <% end %>
+</div>

@@ -90,12 +90,12 @@
             <% if current_user.calenders.blank? && Date.today <= @calender_min.min.day ||current_user.calenders == nil %>
               <div class="calender-text">予約中のレッスン受講日はありません</div>
             <% else %>
-              <div class="calender-text">次のレッスンは
+              <div class="calender-text"><strong>次のレッスンは
               <%= link_to calender_path(@calender_min.min.id) do%>
                 <%= @calender_min.min.day  %>
                 <%= @calender_min.min.time %>
               <% end %>
-              です。</div>
+              です。</strong></div>
               <details class="calender-text"> 
                 <summary>
                 <span class="open">予約済一覧はこちら</span>
@@ -143,9 +143,10 @@
       <h2>お支払いフォーム</h2>
           <div class="room-form-block">
            <div class="form-block"></div>
-        <%= link_to "お支払いフォームはこちら",purchases_path,class:"room-text"%>
-        </div>
+           <%= link_to "▶︎お支払い一覧はこちら",purchase_path(current_user.id), class: 'calender-text'  %><br>
+           <%= link_to "⇨お支払いフォームはこちら",purchases_path,class:"room-text"%>
+           </div>
+          </div>
     </div>
-  </div>
  <% end %>
 </div>
