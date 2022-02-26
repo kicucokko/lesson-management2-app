@@ -12,7 +12,7 @@ class Ability
 
        elsif user.customer?
          can :read,[LessonRoom,Review]
-         can [:read,:create,:update,:destory],Calender
+         can :manage,Calender
 
 
        else

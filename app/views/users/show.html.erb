@@ -1,5 +1,5 @@
 <%= render "shared/header"%>
-
+<%= content_tag(:div, flash[:alert], class: "alert alert-danger") if flash[:alert] %>
 <div class="container">
  <div class="row">
     <div class="room-center">
@@ -87,13 +87,13 @@
         <%# Customer　分岐%>
         <%if current_user.customer? %>
           <% if current_user.id == @user.id  %>
-            <% if current_user.calenders.blank? && Date.today <= @calender_min.min.day ||current_user.calenders == nil %>
+            <% if current_user.calenders.blank? && Date.today <= @calender_min.day ||current_user.calenders == nil %>
               <div class="calender-text">予約中のレッスン受講日はありません</div>
             <% else %>
               <div class="calender-text"><strong>次のレッスンは
-              <%= link_to calender_path(@calender_min.min.id) do%>
-                <%= @calender_min.min.day  %>
-                <%= @calender_min.min.time %>
+              <%= link_to calender_path(@calender_min.id) do%>
+                <%= @calender_min.day  %>
+                <%= @calender_min.time %>
               <% end %>
               です。</strong></div>
               <details class="calender-text"> 

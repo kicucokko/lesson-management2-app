@@ -36,6 +36,15 @@ body{
 .actions{
   text-align: center;
 }
+
+.alert-danger{
+  text-align: center;
+  color:red;
+}
+.text-right{
+  text-align: center;
+}
+
 /*プロフィール*/
 h2{
   text-align:center;

@@ -7,6 +7,11 @@ class UsersController < ApplicationController
     
     @calenders =Calender.includes(:user).order("day,time ASC")
     @calender = @user.calenders.order("day ASC")
-    @calender_min = Calender.where("day > ?",Date.today)
+    @calender.each do |calender|
+      if calender.day >= Date.today
+         @calender_min = calender
+         break
+      end  
+    end 
   end
 end
