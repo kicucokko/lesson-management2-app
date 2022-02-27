@@ -16,16 +16,15 @@ class ReviewsController < ApplicationController
   end
   def show
     @review = Review.where(id: params[:lesson_room_id])
-    @lesson_room = Review.find(params[:lesson_room_id])
+    @lesson_room = LessonRoom.find(params[:id])
   end
   def edit
     @lesson_room = LessonRoom.find(params[:id])
   end
   def update
     lesson_room = LessonRoom.find(params[:id])
-   
     review = Review.find(params[:lesson_room_id])
-
+ 
     if review.update(review_params)
      redirect_to lesson_room_path(review.lesson_room.id)
     else
