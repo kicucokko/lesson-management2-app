@@ -6,7 +6,7 @@
      レッスン記録登録フォーム
     </h1>
   </div>
-  <%= form_with model: @review, url: lesson_room_reviews_path, class: 'registration-main', local: true do |f| %>
+  <%= form_with model: [@lesson_romm,@review], url: lesson_room_reviews_path, class: 'registration-main', local: true do |f| %>
     <%= render 'shared/error_messages', model: @review %>
   <div class="field">
     <div class="form-text-wrap">

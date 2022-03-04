@@ -50,7 +50,7 @@
       <%= link_to lesson_room_review_path(f.id), class: 'room-serect-btn' do%>
        <li><span class='botn-text'><%= f.title %></span><br>
         <% if current_user.admin? %>
-          <%= link_to '削除する', lesson_room_review_path(@review.ids), method: :delete,class:"col-12 text-right" %>
+          <%= link_to '削除する', lesson_room_review_path(f.id), method: :delete,class:"col-12 text-right" %>
          <% end %></li><br>
       <% end %>
       </div>
