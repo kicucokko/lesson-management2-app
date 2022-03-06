@@ -87,13 +87,14 @@
         <%# Customer　分岐%>
         <%if current_user.customer? %>
           <% if current_user.id == @user.id  %>
-            <% if current_user.calenders.blank? && Date.today <= @calender_min.day ||current_user.calenders == nil %>
+         
+            <% if @calender.blank? %>
               <div class="calender-text">予約中のレッスン受講日はありません</div>
             <% else %>
               <div class="calender-text"><strong>次のレッスンは
-              <%= link_to calender_path(@calender_min.id) do%>
-                <%= @calender_min.day  %>
-                <%= @calender_min.time %>
+              <%= link_to calender_path(@calender_future.id) do%>
+                <%= @calender_future.day  %>
+                <%= @calender_future.time %>
               <% end %>
               です。</strong></div>
               <details class="calender-text"> 
@@ -107,8 +108,8 @@
                     <% end %> 
                   <% end %>    
               </details>
-              <%= link_to "⇨レッスン受講日予約はこちら",calenders_path, class: 'calender-text'  %>
             <% end %>
+            <%= link_to "⇨レッスン受講日予約はこちら",calenders_path, class: 'calender-text'  %>
           <% else %>
             <div class="calender-text">閲覧できません</div>
           <% end %> 
