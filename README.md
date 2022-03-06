@@ -1,13 +1,17 @@
  
 
- **アプリケーション名**:                        **Lesson-Management**
+
+ **Lesson-Management**
  --
  ## アプリケーション概要:                         
  特定ユーザー間の投稿閲覧機能(レッスン記録確認機能)/カレンダー型予約機能/決済機能                                                                
  
- ## URL:                                                                                                                                                                        
+ ## URL: 
+https://lesson-management2-app.herokuapp.com/           
  
- ## テスト用アカウント:                                                                                                                                                             
+ ## テスト用アカウント:　
+・講師アカウントemail:admin.admin.com / pass:7777777  
+・生徒アカウントemail:hanako.hana.com / pass:8888888                                                                                      
 
 
  ## 利用方法:                               
