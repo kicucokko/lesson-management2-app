@@ -10,8 +10,8 @@
 https://lesson-management2-app.herokuapp.com/           
  
  ## テスト用アカウント:　
-・講師アカウントemail:admin.admin.com / pass:7777777  
-・生徒アカウントemail:hanako.hana.com / pass:8888888                                                                                      
+・講師アカウントemail:admin@admin.com / pass:7777777  
+・生徒アカウントemail:hanako@hana.com / pass:8888888                                                                                      
 
 
  ## 利用方法:                               
