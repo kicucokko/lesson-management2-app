@@ -7,7 +7,7 @@ class UsersController < ApplicationController
     
     @calenders =Calender.includes(:user).order("day,time ASC")
     @calender = @user.calenders.order("day ASC")
-    @calender_futures = @calender.where('day >= ?', Date.current)
-    @calender_future = @calender_futures.min
+    @calender_futures = @calender.where('day >= ?', Date.current).order("day ASC")
+    @calender_future = @calender_futures.first
   end
 end
